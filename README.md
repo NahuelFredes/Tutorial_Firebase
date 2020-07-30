@@ -19,9 +19,9 @@ Una vez creado el proyecto deberas agregarle tu aplicacion web
 
 Luego necesitas crear un formulario de registro para usuarios
 *Podés utilizar el siguiente (sin las comillas iniciales en cada tag)*
-<pre>
+<pre><code>
     <'h1>Registrarse</h1>
     <'input type="email" id="email" placeholder="Coloca aqui tu email" />
     <'input type="password" id="pass" placeholder="Coloca aqui tu password" />
     <'button onclick="enviar()" >Enviar</button>
-</pre>
+</code></pre>
