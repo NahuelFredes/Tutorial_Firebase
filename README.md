@@ -15,7 +15,10 @@ Una vez creado el proyecto deberas agregarle tu aplicacion web
 ### Authentication
 *Es una herramienta de gestion de usuarios, mails, contraseñas, autenticación, etc*
 #### Primeros pasos
-Deberás crear un formulario para que tus usuarios puedan registrarse
+*Deberás añadir la libreria de [authentication](https://firebase.google.com/docs/web/setup?hl=es-419#libraries_hosting-urls)*
+
+Luego necesitas crear un formulario de registro para usuarios
+*Podés utilizar el siguiente (sin las comillas iniciales en cada tag)*
 <pre>
     <'h1>Registrarse</h1>
     <'input type="email" id="email" placeholder="Coloca aqui tu email" />
