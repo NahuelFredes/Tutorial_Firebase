@@ -14,10 +14,10 @@ Una vez creado el proyecto deberas agregarle tu aplicacion web
 
 ### Authentication
 *Es una herramienta de gestion de usuarios, mails, contraseñas, autenticación, etc*
-#### Uso basico
+#### Registro de Usuarios
 *Deberás añadir la libreria de [authentication](https://firebase.google.com/docs/web/setup?hl=es-419#libraries_hosting-urls)*
 
-Luego necesitas crear un formulario de registro para usuarios:
+Necesitas crear un formulario de registro para usuarios:
 *Podés utilizar el siguiente (sin las comillas iniciales en cada tag)*
 
 <pre><code>
@@ -72,3 +72,65 @@ function verificar(){
       });
   }
 </code></pre>
+
+Tambien podemos añadir un texto que nos muestre si el usuario esta verificado o no:
+
+**Creamos un campo de texto con id para aplicar la funcion (sin las comillas iniciales en cada tag)**
+
+<pre><code>
+<'h2 id="logueado"></h2>
+</code></pre>
+  
+**Establecemos un observador en el objeto Auth y hacemos una funcion pasando un parametro user(se puede llamar de cualquier forma). Ese parametro lo utilizaremos para aplicar las funciones de firebase.auth y obtener el email, emailVerificado y cualquier otro que necesitemos como displayName, photoURL, etc. Hacemos un if simple para ver si el usuario esta logueado o no, retornando un texto en cada caso y además dentro del caso en el que esté logueado, se vera si esta verificado o no con otro if simple.**
+<pre><code>
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // Si el usuario esta logueado
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var textoVerificado="";
+    if(emailVerified===false){
+      textoVerificado="Email no verificado";
+    }
+    else{
+      textoVerificado="Email verificado";
+    }
+    var providerData = user.providerData;
+    document.getElementById('logueado').innerHTML=`<p>Logueado como <p>`+user.email+
+    ` `+ textoVerificado
+    } 
+  else {
+    // Si el usuario no esta logueado
+    document.getElementById('logueado').innerHTML="No logueado";
+  }
+});
+</code></pre>
+
+#### Función de LogIn y LogOut
+Utilizaremos un formulario para LogIn y un boton para LogOut:
+*Copiar sin las comillas al principio de cada tag*
+<pre><code>
+
+  <'h1>Ingresar</h1>
+  <'input type="email" id="email_log" placeholder="Coloca aqui tu email" />
+  <'input type="password" id="pass_log" placeholder="Coloca aqui tu password" />
+  <'button onclick="login()" >Enviar</button>
+  
+  <'br> <button onclick="logout()"> Cerrar Sesion </button>
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
