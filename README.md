@@ -18,7 +18,7 @@ Una vez creado el proyecto deberas agregarle tu aplicacion web
 *Deberás añadir la libreria de [authentication](https://firebase.google.com/docs/web/setup?hl=es-419#libraries_hosting-urls)*
 
 Necesitas crear un formulario de registro para usuarios:
-*Podés utilizar el siguiente (sin las comillas iniciales en cada tag)*
+*Podés utilizar el siguiente (sin la comilla inicial en cada tag)*
 
 <pre><code>
     <'h1>Registrarse</h1>
@@ -75,7 +75,7 @@ function verificar(){
 
 Tambien podemos añadir un texto que nos muestre si el usuario esta verificado o no:
 
-**Creamos un campo de texto con id para aplicar la funcion (sin las comillas iniciales en cada tag)**
+**Creamos un campo de texto con id para aplicar la funcion (sin la comilla inicial en cada tag)**
 
 <pre><code>
 <'h2 id="logueado"></h2>
@@ -108,7 +108,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 #### Función de LogIn y LogOut
 Utilizaremos un formulario para LogIn y un boton para LogOut:
-*Copiar sin las comillas al principio de cada tag*
+*Copiar sin la comilla al principio de cada tag*
 
 <pre><code>
   <'h1>Ingresar</h1>
@@ -137,7 +137,22 @@ function logout(){
 }
 </code></pre>
 
-## Database
+### Database
+En Firestore tenemos dos alternativas bastante similares pero con algunas diferencias. La diferencia principal es que Realtime Database esta compuesta por un unico objeto Jason, en cambio Cloud Firestore esta compuesta por Colecciones las cuales contienen objetos Jason.
+
+### Realtime Database
+*Pimero tenemos que agregar las librerias a nuestro proyecto*
+
+**Copiar sin la comilla inicial en los tags**
+
+<pre><code>
+<'script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+<'script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+</code></pre>
+
+
+### Cloud Firestore
+
 
 
 
