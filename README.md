@@ -17,11 +17,27 @@ Una vez creado el proyecto deberas agregarle tu aplicacion web
 #### Primeros pasos
 *Deberás añadir la libreria de [authentication](https://firebase.google.com/docs/web/setup?hl=es-419#libraries_hosting-urls)*
 
-Luego necesitas crear un formulario de registro para usuarios
+Luego necesitas crear un formulario de registro para usuarios:
 *Podés utilizar el siguiente (sin las comillas iniciales en cada tag)*
+
 <pre><code>
     <'h1>Registrarse</h1>
     <'input type="email" id="email" placeholder="Coloca aqui tu email" />
     <'input type="password" id="pass" placeholder="Coloca aqui tu password" />
-    <'button onclick="enviar()" >Enviar</button>
+    <'button onclick="registrar()" >Registrarse</button>
+</code></pre>
+
+Y en la seccion Script:
+*Primero se guardan los datos del formulario en variables de email y contraseña y luego se llama a la funcion de firebase "firebase.auth()" para despues llamar a "createUserWithEmailAndPassword()" y pasarle como parametros el email y contraseña previamente guardados. Luego se puede agregar una funcion para que en caso de que ocurra algun error salte una alerta*
+<pre><code>
+  function registrar(){
+    var email=document.getElementById('email').value;
+    var pass=document.getElementById('pass').value;
+    firebase.auth().createUserWithEmailAndPassword(email, pass)
+    .catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+      });
+  }
 </code></pre>
