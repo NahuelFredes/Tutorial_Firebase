@@ -16,9 +16,9 @@ Una vez creado el proyecto deberas agregarle tu aplicacion web
 *Es una herramienta de gestion de usuarios, mails, contraseñas, autenticación, etc*
 #### Primeros pasos
 Deberás crear un formulario para que tus usuarios puedan registrarse
-<code>
-    "<h1>Registrarse</h1>
+<pre>
+    <!-- <h1>Registrarse</h1>
     <input type="email" id="email" placeholder="Coloca aqui tu email" />
     <input type="password" id="pass" placeholder="Coloca aqui tu password" />
-    <button onclick="enviar()" >Enviar</button>"
-</code>
+    <button onclick="enviar()" >Enviar</button> -->
+</pre>
