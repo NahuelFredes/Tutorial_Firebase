@@ -148,6 +148,7 @@ En Firestore tenemos dos alternativas bastante similares pero con algunas difere
 <pre><code>
 <'script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
 <'script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
 </code></pre>
 
 
