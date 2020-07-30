@@ -109,18 +109,35 @@ firebase.auth().onAuthStateChanged(function(user) {
 #### Función de LogIn y LogOut
 Utilizaremos un formulario para LogIn y un boton para LogOut:
 *Copiar sin las comillas al principio de cada tag*
-<pre><code>
 
+<pre><code>
   <'h1>Ingresar</h1>
   <'input type="email" id="email_log" placeholder="Coloca aqui tu email" />
   <'input type="password" id="pass_log" placeholder="Coloca aqui tu password" />
-  <'button onclick="login()" >Enviar</button>
-  
-  <'br> <button onclick="logout()"> Cerrar Sesion </button>
+  <'button onclick="login()" >Iniciar Sesion</button>
+  <'br> 
+  <'button onclick="logout()"> Cerrar Sesion </button>
 </code></pre>
 
+Luego en la seccion de Script escribimos las funciones correspondientes:
+**Simplemente creamos las variables para luego pasarle como parametros a la funcion signInWithEmailAndPassword() y en la funcion logout llamamos a signOut() del objeto auth()**
+<pre><code>  
+function login(){
+    var email_log=document.getElementById('email_log').value;
+    var pass_log=document.getElementById('pass_log').value;
+    firebase.auth().signInWithEmailAndPassword(email_log, pass_log).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+        });
+    }
 
+function logout(){
+    firebase.auth().signOut()
+}
+</code></pre>
 
+## Database
 
 
 
