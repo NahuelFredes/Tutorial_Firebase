@@ -14,7 +14,7 @@ Una vez creado el proyecto deberas agregarle tu aplicacion web
 
 ### Authentication
 *Es una herramienta de gestion de usuarios, mails, contraseñas, autenticación, etc*
-#### Primeros pasos
+#### Uso basico
 *Deberás añadir la libreria de [authentication](https://firebase.google.com/docs/web/setup?hl=es-419#libraries_hosting-urls)*
 
 Luego necesitas crear un formulario de registro para usuarios:
@@ -38,6 +38,37 @@ Y en la seccion Script:
         var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
+      });
+  }
+</code></pre>
+
+#### Función de Autenticación
+*Esta es una gran herramienta para verificar que los mails sean legitimos*
+
+Haremos que cuando el usuario se registre, automaticamente se le envie una peticion de autencicaión a su mail:
+
+**Creamos la funcion verificar la cual guardará el currentUser que acaba de registrarse y le aplicará la funcion para enviar la verificacion de email.**
+<pre><code>
+function verificar(){
+  var user = firebase.auth().currentUser;
+  user.sendEmailVerification().then(function() {
+  }).catch(function(error) {
+  });
+}
+</code></pre>
+
+**Y aqui le agregamos .then(function(){ verificar();}) a la funcion de registrar() para que llame a la funcion verificar() y asi el usuario pueda verificar su mail**
+<pre><code>
+  function registrar(){
+    var email=document.getElementById('email').value;
+    var pass=document.getElementById('pass').value;
+    firebase.auth().createUserWithEmailAndPassword(email, pass)
+    .catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+      }).then(function(){
+        verificar();
       });
   }
 </code></pre>
