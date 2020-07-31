@@ -96,7 +96,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       textoVerificado="Email verificado";
     }
     var providerData = user.providerData;
-    document.getElementById('logueado').innerHTML=`<'p>Logueado como <p>`+user.email+
+    document.getElementById('logueado').innerHTML=`<'p>Logueado como </p>`+user.email+
     ` `+ textoVerificado
     } 
   else {
