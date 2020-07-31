@@ -43,7 +43,7 @@ Y en la seccion Script:
 </code></pre>
 
 #### Función de Autenticación
-*Esta es una gran herramienta para verificar que los mails sean legitimos*
+*Esta es una gran herramienta para verificar que los emails sean legitimos*
 
 Haremos que cuando el usuario se registre, automaticamente se le envie una peticion de autencicaión a su mail:
 
@@ -138,21 +138,12 @@ function logout(){
 </code></pre>
 
 ### Database
-En Firestore tenemos dos alternativas bastante similares pero con algunas diferencias. La diferencia principal es que Realtime Database esta compuesta por un unico objeto Jason, en cambio Cloud Firestore esta compuesta por Colecciones las cuales contienen objetos Jason.
-
-### Realtime Database
-*Pimero tenemos que agregar las librerias a nuestro proyecto*
-
-**Copiar sin la comilla inicial en los tags**
-
-<pre><code>
-<'script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-<'script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
-
-</code></pre>
-
+En Firestore tenemos dos alternativas bastante similares pero con algunas diferencias. La diferencia principal es que Realtime Database esta compuesta por un unico objeto Jason, en cambio Cloud Firestore esta compuesta por Colecciones las cuales contienen objetos Jason. En esta guia haremos una introduccion en el uso de Cloud Firestore.
 
 ### Cloud Firestore
+Al dirigirse a la seccion Databases en Firebase, seleccionamos Cloud Firestore 
+
+*Pimero tenemos que agregar las librerias a nuestro proyecto, para ello copia el script del siguiente [link](https://firebase.google.com/docs/firestore/quickstart?hl=es-419#web)*
 
 
 
