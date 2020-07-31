@@ -96,7 +96,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       textoVerificado="Email verificado";
     }
     var providerData = user.providerData;
-    document.getElementById('logueado').innerHTML=`<p>Logueado como <p>`+user.email+
+    document.getElementById('logueado').innerHTML=`<'p>Logueado como <p>`+user.email+
     ` `+ textoVerificado
     } 
   else {
@@ -142,11 +142,13 @@ En Firestore tenemos dos alternativas bastante similares pero con algunas difere
 
 ### Cloud Firestore
 Al dirigirse a la seccion Databases en Firebase, seleccionamos Cloud Firestore, crear base de datos. Aqui nos apareceran dos opciones, seleccionamos la de modo de prueba ya que esta nos permitira testear y aprender el funcionamiento sin restricciones de seguridad (cabe destacar que cualquier persona podrá escribir y leer datos de tu base de datos durante 30 dias). El modo de produccion sirve para establecer reglas de seguridad sobre quien puede leer o escribir en nuestra base de datos.
-    ** Una vez creada la base de datos nos podemos dirigir a la seccion Reglas y cambiar esta linea de codigo:** 
+
+**Una vez creada la base de datos nos podemos dirigir a la seccion Reglas y cambiar esta linea de codigo:**
     <pre><code>
     allow read, write: if request.time < timestamp.date(2020, 8, 30);
     </code></pre>
-    ** Y ponemos esta para que asi la base de datos este totalmente disponible a todo el mundo en todo momento(se recomienda para uso de aprendizaje o testeo, de otra forma es conveniente establecer reglas de restriccion de seguridad):** 
+    
+**Y ponemos esta para que asi la base de datos este totalmente disponible a todo el mundo en todo momento(se recomienda para uso de aprendizaje o testeo, de otra forma es conveniente establecer reglas de restriccion de seguridad):**
     <pre><code>
     allow read, write: if true;
     </code></pre>
