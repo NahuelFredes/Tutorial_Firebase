@@ -210,7 +210,7 @@ En la parte de Script:
 
 *Aqui reutilizaremos la referencia a firestore y al documento*
 
-**Una snapshot es basicamente un objeto que representa tu documento. En nuestro caso la snapshot se llama "doc". Le aplicamos .data(), la cual extraerá los datos que contiene como un objeto. Entonces podemos extraer cada dato tratando la variable misDatos como cualquier otro objeto(Ej: misDatos.nombre)**
+**Una snapshot es basicamente un objeto que representa tu documento. En nuestro caso la snapshot se llama "doc". A esta le aplicamos ".data()" y la guardamos en la variable "misDatos", la cual extraerá los datos que contiene como un objeto. Entonces podemos extraer cada dato tratando a la variable "misDatos" como cualquier otro objeto(Ej: "misDatos.nombre")**
 <pre><code>
 var firestore = firebase.firestore();
 var docRef = firestore.doc("/personas/datos");
