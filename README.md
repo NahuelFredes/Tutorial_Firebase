@@ -157,6 +157,7 @@ Al dirigirse a la seccion Databases en Firebase, seleccionamos Cloud Firestore, 
 *Pimero tenemos que agregar las librerias a nuestro proyecto, para ello copia el script del siguiente [link](https://firebase.google.com/docs/firestore/quickstart?hl=es-419#web)*
 
 Vamos a crear un formulario simple con un boton para cargar datos:
+
 *Copiar sin la comilla antes de cada tag*
 <pre><code>
 <'h1>Formulario</h1>
@@ -167,15 +168,64 @@ Vamos a crear un formulario simple con un boton para cargar datos:
   <'button onclick="send()">Enviar</button>
 </code></pre>
 
+**Necesitamos crear una variable que haga referencia a "firestore" y luego es recomendable hacer una variable para la referencia del documento**
+
+*Tambien podemos hacer la referencia de la siguiente manera: firestore.collection("personas).doc("datos"). Teniendo en cuenta que en ambas formas siempre debe ser una seguidilla de coleccion-documento-coleccion-documento...*
+<pre><code>
+var firestore = firebase.firestore();
+var docRef = firestore.doc("/personas/datos");
+</code></pre>
+
+Y hacemos la funcion que se ejecutara al dar click en el boton Enviar:
+
+*Primero establecemos variables para cada valor del formulario. Despues, en la referencia que creamos, utilizamos la funcion set() y le pasamos los datos en formato Jason*
+<pre><code>
+function send(){
+  var nombre = document.getElementById('nombre').value;
+  var apellido = document.getElementById('apellido').value;
+  var dni = document.getElementById('dni').value;
+
+  docRef.set({
+     "nombre": nombre,
+     "apellido" : apellido,
+     "dni" : dni
+  }).then(function(){
+    console.log("Datos Guardados!!");
+  }).catch(function (error) {
+    console.log("Hubo un Error!!", error);
+  });
+}
+</code></pre>
 
 
+#### Getteo Básico de datos
 
+Usaremos un boton y un campo de texto para simplificarlo:
+<pre><code>
+  <'h3 id="form_devuelto"></h3>
+  <'button onclick="recibir()">Recibir</button>
+</code></pre>
 
+En la parte de Script:
 
+*Aqui reutilizaremos la referencia a firestore y al documento*
 
+**Una snapshot es basicamente un objeto que representa tu documento. En nuestro caso la snapshot se llama "doc". Le aplicamos .data(), la cual extraerá los datos que contiene como un objeto. Entonces podemos extraer cada dato tratando la variable misDatos como cualquier otro objeto(Ej: misDatos.nombre)**
+<pre><code>
+var firestore = firebase.firestore();
+var docRef = firestore.doc("/personas/datos");
 
-
-
-
-
+function recibir(){
+  // Hace una snapshot
+  docRef.get().then(function(doc){
+    // Ve si la snapshot existe
+    if (doc && doc.exists) {
+      var misDatos = doc.data();
+      document.getElementById('form_devuelto').innerHTML = misDatos.nombre +" "+ misDatos.apellido +" "+ misDatos.dni;
+    }
+  }).catch(function (error){
+    console.log("ERROR", error);
+  });
+}
+</code></pre>
 
