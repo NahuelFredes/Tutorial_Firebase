@@ -138,10 +138,18 @@ function logout(){
 </code></pre>
 
 ### Database
-En Firestore tenemos dos alternativas bastante similares pero con algunas diferencias. La diferencia principal es que Realtime Database esta compuesta por un unico objeto Jason, en cambio Cloud Firestore esta compuesta por Colecciones las cuales contienen objetos Jason. En esta guia haremos una introduccion en el uso de Cloud Firestore.
+En Firestore tenemos dos alternativas bastante similares pero con algunas diferencias. La diferencia principal es que Realtime Database esta compuesta por un unico objeto Jason que contiene los datos, en cambio Cloud Firestore esta compuesta por Colecciones las cuales contienen objetos Jason. En esta guia haremos una introduccion en el uso de Cloud Firestore.
 
 ### Cloud Firestore
-Al dirigirse a la seccion Databases en Firebase, seleccionamos Cloud Firestore 
+Al dirigirse a la seccion Databases en Firebase, seleccionamos Cloud Firestore, crear base de datos. Aqui nos apareceran dos opciones, seleccionamos la de modo de prueba ya que esta nos permitira testear y aprender el funcionamiento sin restricciones de seguridad (cabe destacar que cualquier persona podrá escribir y leer datos de tu base de datos durante 30 dias). El modo de produccion sirve para establecer reglas de seguridad sobre quien puede leer o escribir en nuestra base de datos.
+    ** Una vez creada la base de datos nos podemos dirigir a la seccion Reglas y cambiar esta linea de codigo:** 
+    <pre><code>
+    allow read, write: if request.time < timestamp.date(2020, 8, 30);
+    </code></pre>
+    ** Y ponemos esta para que asi la base de datos este totalmente disponible a todo el mundo en todo momento(se recomienda para uso de aprendizaje o testeo, de otra forma es conveniente establecer reglas de restriccion de seguridad):** 
+    <pre><code>
+    allow read, write: if true;
+    </code></pre>
 
 *Pimero tenemos que agregar las librerias a nuestro proyecto, para ello copia el script del siguiente [link](https://firebase.google.com/docs/firestore/quickstart?hl=es-419#web)*
 
