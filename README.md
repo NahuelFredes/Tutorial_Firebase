@@ -96,7 +96,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       textoVerificado="Email verificado";
     }
     var providerData = user.providerData;
-    document.getElementById('logueado').innerHTML=`<'p>Logueado como </p>`+user.email+
+    document.getElementById('logueado').innerHTML=`<'p>Logueado como <'p>`+user.email+
     ` `+ textoVerificado
     } 
   else {
@@ -153,8 +153,19 @@ Al dirigirse a la seccion Databases en Firebase, seleccionamos Cloud Firestore, 
     allow read, write: if true;
     </code></pre>
 
+#### Setteo Básico de Datos
 *Pimero tenemos que agregar las librerias a nuestro proyecto, para ello copia el script del siguiente [link](https://firebase.google.com/docs/firestore/quickstart?hl=es-419#web)*
 
+Vamos a crear un formulario simple con un boton para cargar datos:
+*Copiar sin la comilla antes de cada tag*
+<pre><code>
+<'h1>Formulario</h1>
+  <'input type="text" id="nombre" placeholder="Nombre" />
+  <'input type="text" id="apellido" placeholder="Apellido" />
+  <'input type="number" id="dni" placeholder="DNI" />
+  <'br>
+  <'button onclick="send()">Enviar</button>
+</code></pre>
 
 
 
