@@ -138,7 +138,7 @@ function logout(){
 </code></pre>
 
 ### Database
-En Firestore tenemos dos alternativas bastante similares pero con algunas diferencias. La diferencia principal es que Realtime Database esta compuesta por un unico objeto Jason que contiene los datos, en cambio Cloud Firestore esta compuesta por Colecciones las cuales contienen objetos Jason. En esta guia haremos una introduccion en el uso de Cloud Firestore.
+En Firestore tenemos dos alternativas bastante similares pero con algunas diferencias. La diferencia principal es que Realtime Database esta compuesta por un unico objeto JSON que contiene los datos, en cambio Cloud Firestore esta compuesta por Colecciones las cuales contienen objetos JSON. En esta guia haremos una introduccion en el uso de Cloud Firestore.
 
 ### Cloud Firestore
 Al dirigirse a la seccion Databases en Firebase, seleccionamos Cloud Firestore, crear base de datos. Aqui nos apareceran dos opciones, seleccionamos la de modo de prueba ya que esta nos permitira testear y aprender el funcionamiento sin restricciones de seguridad (cabe destacar que cualquier persona podrá escribir y leer datos de tu base de datos durante 30 dias). El modo de produccion sirve para establecer reglas de seguridad sobre quien puede leer o escribir en nuestra base de datos.
@@ -178,7 +178,7 @@ var docRef = firestore.doc("/personas/datos");
 
 Y hacemos la funcion que se ejecutara al dar click en el boton Enviar:
 
-*Primero establecemos variables para cada valor del formulario. Despues, en la referencia que creamos, utilizamos la funcion set() y le pasamos los datos en formato Jason*
+*Primero establecemos variables para cada valor del formulario. Despues, en la referencia que creamos, utilizamos la funcion set() y le pasamos los datos en formato JSON*
 <pre><code>
 function send(){
   var nombre = document.getElementById('nombre').value;
