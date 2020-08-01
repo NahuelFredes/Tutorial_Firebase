@@ -57,7 +57,7 @@ function verificar(){
 }
 </code></pre>
 
-**Y aqui le agregamos .then(function(){ verificar();}) a la funcion de registrar() para que llame a la funcion verificar() y asi el usuario pueda verificar su mail**
+**Y aqui le agregamos .then(function(){ verificar();}) a la funcion de registrar() para que llame a la funcion verificar() cada vez que algun usuario nuevo se registre y asi el usuario pueda verificar su email**
 <pre><code>
   function registrar(){
     var email=document.getElementById('email').value;
