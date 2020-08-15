@@ -229,3 +229,39 @@ function recibir(){
 }
 </code></pre>
 
+
+### Consultas
+Cloud Firestore proporciona una potente función de consulta para especificar qué documentos deseas recuperar de una colección o de un grupo de colecciones.
+
+#### Simples
+Siguiendo con el mismo ejemplo, pero suponiendo que ingresaramos mas personas. Podriamos utilizar la misma funcion de Get, pero ahora le agregamos a la **referencia** un where()
+Y filtramos por las personas que tienen dni mayor o igual a 40000
+
+<pre><code>
+var docRef = firestore.collection("personas").where("dni", ">=" ,40000);
+</code></pre>
+
+#### Compuestas
+Y una encadenacion de varios where() crearia una consulta compuesta. Para las consultas compuestas firebase nos solicitara crear un indice, podemos crearlo desde el mensaje de error que aparecerá en la consola del navegador. *Tener en cuenta que no se puede utilizar dos veces un operador de desigualdad (<,>,<=,>=) asi como un operador array-contains*
+
+Ejemplo; buscamos en personas, aquellas que tengan dni mayor o igual a 40000 y su nombre sea igual a Jorge 
+<pre><code>
+var docRef = firestore.collection("personas").where("dni", ">=" ,40000).where("nombre", "==" ,"Jorge");
+</code></pre>
+
+
+### Consultas de Grupos de Colecciones
+Imaginemos que tenemos una coleccion de restaurantes y cada restaurante (documento) tiene su coleccion de criticas. Si quisieramos ver el rating (que esta dentro de los documentos de criticas) de todos los restaurantes, necesitamos usar Grupos de Colecciones. En la consola del navegador nos aparecera un link para crear una exencion necesaria para el colecctionGroup
+
+Aquí hacemos una referencia que para crear el collectionGroup en base a las colecciones llamadas comentarios. Y lo filtramos por rating mayor a 5. Luego lo printeamos en la consola:
+<pre><code>
+function recibir(){
+  var groupCo = firestore.collectionGroup("comentarios").where("rating",">=",5);
+  groupCo.get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(docc) {
+            var myDatos = docc.data();
+            console.log(docc.id, " => ", docc.data());
+            });
+        })
+    }
+</code></pre>
