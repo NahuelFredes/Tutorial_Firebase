@@ -21,10 +21,10 @@ Necesitas crear un formulario de registro para usuarios:
 *Podés utilizar el siguiente (sin la comilla inicial en cada tag)*
 
 <pre><code>
-    <'h1>Registrarse</h1>
+    <'h1>Registrarse<'/h1>
     <'input type="email" id="email" placeholder="Coloca aqui tu email" />
     <'input type="password" id="pass" placeholder="Coloca aqui tu password" />
-    <'button onclick="registrar()" >Registrarse</button>
+    <'button onclick="registrar()" >Registrarse<'/button>
 </code></pre>
 
 Y en la seccion Script:
@@ -78,7 +78,7 @@ Tambien podemos añadir un texto que nos muestre si el usuario esta verificado o
 **Creamos un campo de texto con id para aplicar la funcion (sin la comilla inicial en cada tag)**
 
 <pre><code>
-<'h2 id="logueado"></h2>
+<'h2 id="logueado"><'/h2>
 </code></pre>
   
 **Establecemos un observador en el objeto Auth y hacemos una funcion pasando un parametro user(se puede llamar de cualquier forma). Ese parametro lo utilizaremos para aplicar las funciones de firebase.auth y obtener el email, emailVerificado y cualquier otro que necesitemos como displayName, photoURL, etc. Hacemos un if simple para ver si el usuario esta logueado o no, retornando un texto en cada caso y además dentro del caso en el que esté logueado, se vera si esta verificado o no con otro if simple.**
@@ -111,12 +111,12 @@ Utilizaremos un formulario para LogIn y un boton para LogOut:
 *Copiar sin la comilla al principio de cada tag*
 
 <pre><code>
-  <'h1>Ingresar</h1>
+  <'h1>Ingresar<'/h1>
   <'input type="email" id="email_log" placeholder="Coloca aqui tu email" />
   <'input type="password" id="pass_log" placeholder="Coloca aqui tu password" />
-  <'button onclick="login()" >Iniciar Sesion</button>
+  <'button onclick="login()" >Iniciar Sesion<'/button>
   <'br> 
-  <'button onclick="logout()"> Cerrar Sesion </button>
+  <'button onclick="logout()"> Cerrar Sesion <'/button>
 </code></pre>
 
 Luego en la seccion de Script escribimos las funciones correspondientes:
@@ -160,12 +160,12 @@ Vamos a crear un formulario simple con un boton para cargar datos:
 
 *Copiar sin la comilla antes de cada tag*
 <pre><code>
-<'h1>Formulario</h1>
+<'h1>Formulario<'/h1>
   <'input type="text" id="nombre" placeholder="Nombre" />
   <'input type="text" id="apellido" placeholder="Apellido" />
   <'input type="number" id="dni" placeholder="DNI" />
   <'br>
-  <'button onclick="send()">Enviar</button>
+  <'button onclick="send()">Enviar<'/button>
 </code></pre>
 
 **Necesitamos crear una variable que haga referencia a "firestore" y luego es recomendable hacer una variable para la referencia del documento**
@@ -202,8 +202,8 @@ function send(){
 
 Usaremos un boton y un campo de texto para simplificarlo:
 <pre><code>
-  <'h3 id="form_devuelto"></h3>
-  <'button onclick="recibir()">Recibir</button>
+  <'h3 id="form_devuelto"><'/h3>
+  <'button onclick="recibir()">Recibir<'/button>
 </code></pre>
 
 En la parte de Script:
@@ -260,7 +260,7 @@ function recibir(){
   groupCo.get().then(function(querySnapshot) {
         querySnapshot.forEach(function(docc) {
             var myDatos = docc.data();
-            console.log(docc.id, " => ", docc.data());
+            console.log(docc.id, " => ", myDatos);
             });
         })
     }
